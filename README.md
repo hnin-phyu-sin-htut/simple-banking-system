@@ -22,14 +22,11 @@ A backend-only banking system built with Java, Spring Boot, and MySQL.
 
 - Customer Management
 - Account Management
+- Transactions Management
 
 
 `Planned Features`
 
-- Transactions
-- Deposit and Withdrawal
-- Money Transfer
-- Transaction History
 - Validation
 - Authentication and Authorization
 
