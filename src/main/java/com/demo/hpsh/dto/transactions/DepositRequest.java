@@ -1,5 +1,7 @@
 package com.demo.hpsh.dto.transactions;
 
-public record DepositRequest() {
+import java.math.BigDecimal;
+
+public record DepositRequest(Long accountId, BigDecimal amountIn) {
 
 }

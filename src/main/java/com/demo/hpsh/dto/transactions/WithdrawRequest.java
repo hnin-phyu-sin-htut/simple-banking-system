@@ -1,5 +1,7 @@
 package com.demo.hpsh.dto.transactions;
 
-public record WithdrawRequest() {
+import java.math.BigDecimal;
+
+public record WithdrawRequest(Long accountId, BigDecimal amountOut) {
 
 }

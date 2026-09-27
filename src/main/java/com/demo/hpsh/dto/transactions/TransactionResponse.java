@@ -1,15 +1,12 @@
 package com.demo.hpsh.dto.transactions;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 import com.demo.hpsh.enums.TransactionType;
 
-public record TransactionResponse(
-		Long accountId, 
-		TransactionType transactionType, 
-		double amount, 
-		String description, 
-		LocalDateTime createdAt
-		) {
+import lombok.Builder;
+
+@Builder
+public record TransactionResponse(Long transactionId, TransactionType transactionType, BigDecimal amount) {
 
 }

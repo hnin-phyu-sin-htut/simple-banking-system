@@ -54,11 +54,8 @@ public class Customer {
 	
 	@PrePersist
 	public void prePersist() {
-		LocalDateTime createdAt = LocalDateTime.now();
-		LocalDateTime updatedAt = LocalDateTime.now();
-		
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+		this.createdAt = LocalDateTime.now();
+		this.updatedAt = LocalDateTime.now();
 		
 		if (customerStatus == null) {
 			this.customerStatus = CustomerStatus.ACTIVE;
@@ -67,8 +64,7 @@ public class Customer {
 	
 	@PreUpdate
 	public void preUpdate() {
-		LocalDateTime updatedAt = LocalDateTime.now();
-		this.updatedAt = updatedAt;
+		this.updatedAt = LocalDateTime.now();
 	}
 
 }

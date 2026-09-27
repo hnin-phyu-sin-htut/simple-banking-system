@@ -63,8 +63,7 @@ public class Account {
 
 	@PrePersist
 	public void prePersist() {
-		LocalDateTime createdAt = LocalDateTime.now();
-		this.createdAt = createdAt;
+		this.createdAt = LocalDateTime.now();
 		this.accountNumber = (long) (Math.random() * 9000000000L) + 1000000000L;
 		this.accountStatus = AccountStatus.ACTIVE;
 		this.accountType = AccountType.NORMAL;
