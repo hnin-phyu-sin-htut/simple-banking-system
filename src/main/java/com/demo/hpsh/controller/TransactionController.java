@@ -2,7 +2,6 @@ package com.demo.hpsh.controller;
 
 import java.util.List;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +15,7 @@ import com.demo.hpsh.dto.transactions.TransferRequest;
 import com.demo.hpsh.dto.transactions.WithdrawRequest;
 import com.demo.hpsh.service.impl.TransactionServiceImpl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -26,17 +26,17 @@ public class TransactionController {
 	private final TransactionServiceImpl transactionServiceImpl;
 	
 	@PostMapping("/deposit")
-	public TransactionResponse deposit(@RequestBody DepositRequest depositRequest) {
+	public TransactionResponse deposit(@Valid @RequestBody DepositRequest depositRequest) {
 		return transactionServiceImpl.deposit(depositRequest);
 	}
 	
 	@PostMapping("/withdraw")
-	public TransactionResponse withdraw(@RequestBody WithdrawRequest withdrawRequest) {
+	public TransactionResponse withdraw(@Valid @RequestBody WithdrawRequest withdrawRequest) {
 		return transactionServiceImpl.withdraw(withdrawRequest);
 	}
 	
 	@PostMapping("/transfer")
-	public void transfer(@RequestBody TransferRequest transferRequest) {
+	public void transfer(@Valid @RequestBody TransferRequest transferRequest) {
 		transactionServiceImpl.transfer(transferRequest);
 	}
 	

@@ -2,6 +2,16 @@ package com.demo.hpsh.dto.transactions;
 
 import java.math.BigDecimal;
 
-public record WithdrawRequest(Long accountId, BigDecimal amountOut) {
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
+public record WithdrawRequest(
+			@NotNull(message = "Account ID is required.")
+			Long accountId, 
+			
+			@NotNull(message = "Amount is required.")
+			@Positive(message = "Amount must be greater than zero.")
+			BigDecimal amountOut
+		) {
 
 }

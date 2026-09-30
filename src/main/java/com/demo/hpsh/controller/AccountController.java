@@ -14,6 +14,7 @@ import com.demo.hpsh.dto.account.AccountResponse;
 import com.demo.hpsh.dto.account.CreateAccountRequest;
 import com.demo.hpsh.service.impl.AccountServiceImpl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -24,7 +25,7 @@ public class AccountController {
 	private final AccountServiceImpl accountServiceImpl;
 	
 	@PostMapping("/create-account")
-	public AccountResponse createAccount(@RequestBody CreateAccountRequest createAccountRequest) {
+	public AccountResponse createAccount(@Valid @RequestBody CreateAccountRequest createAccountRequest) {
 		return accountServiceImpl.createAccount(createAccountRequest);
 	}
 	

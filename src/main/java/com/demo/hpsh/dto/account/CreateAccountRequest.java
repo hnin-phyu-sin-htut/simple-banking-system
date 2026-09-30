@@ -1,5 +1,10 @@
 package com.demo.hpsh.dto.account;
 
-public record CreateAccountRequest(Long customerId) {
+import jakarta.validation.constraints.NotNull;
+
+public record CreateAccountRequest(
+			@NotNull(message = "Customer ID is required.")
+			Long customerId
+		) {
 
 }

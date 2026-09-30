@@ -16,6 +16,7 @@ import com.demo.hpsh.dto.customer.CustomerResponse;
 import com.demo.hpsh.dto.customer.UpdateCustomerRequest;
 import com.demo.hpsh.service.impl.CustomerServiceImpl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -26,7 +27,7 @@ public class CustomerController {
 	private final CustomerServiceImpl customerServiceImpl;
 	
 	@PostMapping("/create-customer")
-	public CustomerResponse createCustomer(@RequestBody CreateCustomerRequest createCustomerRequest) {
+	public CustomerResponse createCustomer(@Valid @RequestBody CreateCustomerRequest createCustomerRequest) {
 		return customerServiceImpl.createCustomer(createCustomerRequest);
 	}
 	

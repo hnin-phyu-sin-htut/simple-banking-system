@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.demo.hpsh.enums.CustomerStatus;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -34,7 +35,10 @@ public class Customer {
 	private Long id;
 	
 	private String name;
+
+	@Column(unique = true)
 	private String email;
+	
 	private String phoneNumber;
 	
 	@Enumerated(EnumType.STRING)
