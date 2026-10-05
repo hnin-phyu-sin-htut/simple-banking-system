@@ -1,6 +1,6 @@
 # Simple Banking System
 
-A backend-only banking system built with Java, Spring Boot, and MySQL.
+A backend-only banking system built with Java, Spring Boot, and MySQL, providing REST APIs for customer management, bank account management, transactions, validation, authentication, and authorization.
 
 
 `Technologies`
@@ -11,26 +11,24 @@ A backend-only banking system built with Java, Spring Boot, and MySQL.
 
 - Spring Data JPA
 
-- MySQL
-
 - Maven
+
+- MySQL
 
 - REST API
 
 
-`Current Progress`
+`Features`
 
 - Customer Management
 - Account Management
-- Transactions Management
-- Validation
-
-
-`Planned Features`
-
+- Transaction Management
+- Input Validation
+- RESTful APIs
+- Database Persistence with MySQL
 - Authentication and Authorization
 
 
 `Status`
 
-- In Progress
+- Completed
