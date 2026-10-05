@@ -6,15 +6,15 @@ import com.demo.hpsh.dto.account.AccountResponse;
 import com.demo.hpsh.dto.account.CreateAccountRequest;
 
 public interface AccountService {
-	
+
 	AccountResponse createAccount(CreateAccountRequest createAccountRequest);
-	
+
 	AccountResponse getAccountById(Long id);
-	
-	AccountResponse getAccountByAccountNumber(String accountNumber);
-	
+
+	AccountResponse getAccountByAccountNumber(Long accountNumber);
+
 	List<AccountResponse> getAllAccounts();
-	
+
 	List<AccountResponse> getAccountsByCustomerId(Long customerId);
 
 }

@@ -9,7 +9,7 @@ import com.demo.hpsh.entity.Account;
 
 public interface AccountDao extends JpaRepository<Account, Long> {
 
-	Optional<Account> findAccountByAccountNumber(String accountNumber);
+	Optional<Account> findAccountByAccountNumber(Long accountNumber);
 
 	List<Account> findAccountsByCustomerId(Long customerId);
 

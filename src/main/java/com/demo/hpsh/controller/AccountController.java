@@ -21,29 +21,29 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/account")
 @RequiredArgsConstructor
 public class AccountController {
-	
+
 	private final AccountServiceImpl accountServiceImpl;
-	
+
 	@PostMapping("/create-account")
 	public AccountResponse createAccount(@Valid @RequestBody CreateAccountRequest createAccountRequest) {
 		return accountServiceImpl.createAccount(createAccountRequest);
 	}
-	
+
 	@GetMapping("/{id}")
 	public AccountResponse getAccountById(@PathVariable Long id) {
 		return accountServiceImpl.getAccountById(id);
 	}
-	
+
 	@GetMapping("/get-account-by-account-number")
-	public AccountResponse getAccountByAccountNumber(@RequestParam String accountNumber) {
+	public AccountResponse getAccountByAccountNumber(@RequestParam Long accountNumber) {
 		return accountServiceImpl.getAccountByAccountNumber(accountNumber);
 	}
-	
+
 	@GetMapping("/get-all-accounts")
 	public List<AccountResponse> getAllAccounts() {
 		return accountServiceImpl.getAllAccounts();
 	}
-	
+
 	@GetMapping("/get-accounts-by-customer-id/{customerId}")
 	public List<AccountResponse> getAccountsByCustomerId(@PathVariable Long customerId) {
 		return accountServiceImpl.getAccountsByCustomerId(customerId);

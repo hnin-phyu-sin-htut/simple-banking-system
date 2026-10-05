@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
-	
+
 	private final AccountDao accountDao;
 	private final CustomerDao customerDao;
 
@@ -26,10 +26,8 @@ public class AccountServiceImpl implements AccountService {
 	public AccountResponse createAccount(CreateAccountRequest createAccountRequest) {
 		Customer customer = customerDao.findById(createAccountRequest.customerId())
 				.orElseThrow(() -> new RuntimeException("Customer not found."));
-		
-		Account account = Account.builder()
-				.customer(customer)
-				.build();
+
+		Account account = Account.builder().customer(customer).build();
 		Account savedAccount = accountDao.save(account);
 		return mapToDto(savedAccount);
 	}
@@ -42,7 +40,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public AccountResponse getAccountByAccountNumber(String accountNumber) {
+	public AccountResponse getAccountByAccountNumber(Long accountNumber) {
 		Account account = accountDao.findAccountByAccountNumber(accountNumber)
 				.orElseThrow(() -> new RuntimeException("Account not found."));
 		return mapToDto(account);
@@ -55,18 +53,13 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public List<AccountResponse> getAccountsByCustomerId(Long customerId) {
-		return accountDao.findAccountsByCustomerId(customerId)
-				.stream()
-				.map(this::mapToDto)
-				.toList();
+		return accountDao.findAccountsByCustomerId(customerId).stream().map(this::mapToDto).toList();
 	}
-	
+
 	public AccountResponse mapToDto(Account account) {
-		return AccountResponse.builder()
-				.customerId(account.getCustomer().getId())
-				.build();
+		return AccountResponse.builder().accountNumber(account.getAccountNumber()).build();
 	}
-	
+
 	public Account mapToEntity(AccountResponse dto) {
 		Account account = new Account();
 		BeanUtils.copyProperties(dto, account);

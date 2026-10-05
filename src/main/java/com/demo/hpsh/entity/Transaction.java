@@ -49,13 +49,11 @@ public class Transaction {
 
 	@PrePersist
 	public void prePersist() {
-		
-		if (transactionType == TransactionType.DEPOSIT || 
-				transactionType == TransactionType.TRANSFER_IN) {
+
+		if (transactionType == TransactionType.DEPOSIT || transactionType == TransactionType.TRANSFER_IN) {
 			this.amountIn = amount;
 			this.amountOut = BigDecimal.ZERO;
-		} else if (transactionType == TransactionType.WITHDRAW || 
-				transactionType == TransactionType.TRANSFER_OUT) {
+		} else if (transactionType == TransactionType.WITHDRAW || transactionType == TransactionType.TRANSFER_OUT) {
 			this.amountOut = amount;
 			this.amountIn = BigDecimal.ZERO;
 		}
